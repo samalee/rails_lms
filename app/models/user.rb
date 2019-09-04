@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_man :enrollments
-  has_many :courses, through, :enrollment
+  has_many :enrollments, dependent: :destroy
+  has_many :courses, through: :enrollments
 
   validates :first_name, :last_name, presence: true
 
